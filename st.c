@@ -1060,11 +1060,6 @@ tnew(int col, int row)
 	treset();
 }
 
-int tisaltscr(void)
-{
-	return IS_SET(MODE_ALTSCREEN);
-}
-
 void
 newterm(const Arg* a)
 {
@@ -1095,6 +1090,11 @@ static int chdir_by_pid(pid_t pid) {
 	char buf[32];
 	snprintf(buf, sizeof buf, "/proc/%ld/cwd", (long)pid);
 	return chdir(buf);
+}
+
+int tisaltscr(void)
+{
+	return IS_SET(MODE_ALTSCREEN);
 }
 
 void
